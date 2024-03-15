@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# Napisz skrypt, który pobierze dwa argumenty. Jeżeli oba są plikami do odczytu to 
-# porównujemy ich zawartość. Jeżeli ich zawartość pod każdym względem 
-# (liczba znaków, liczba słów, liczba linii i ich zawartość) jest identyczna, 
-# to wyświetlamy `OK`, a jeżeli się czymś różnią to wyświetlamy pierwszą linię, 
-# którą się różnią i kończymy skrypt. 
-
-# Do porównywania zawartości plików nie używamy poleceń zewnętrznych typu `cmp` lub `diff`.
+# Write a script that takes two arguments. If both are readable files then
+# we compare their content. If their content in every respect
+# (number of characters, number of words, number of lines and their content) is identical,
+#, we display `OK`, and if they differ, we display the first line,
+# which differ and we finish the script.
 
 main_function() {
     checkCountArgument "$@"

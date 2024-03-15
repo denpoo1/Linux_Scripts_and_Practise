@@ -8,12 +8,6 @@
 # the characters in the line are to be reversed also reversed. The script is 
 # supposed to display the number of such lines.
 
-# 1=/home/denpool/Linux-Course/file1
-# 2=/home/denpool/Linux-Course/file2
-# 3=/home/denpool/Linux-Course/file3
-
-# task1.sh /home/denpool/Linux-Course/file1 /home/denpool/Linux-Course/file2 /home/denpool/Linux-Course/file3
-
 main_function() {
     checkCountArgument "$@"
     checkExistFiles "$@"
@@ -71,3 +65,34 @@ writeNonMatchingLinesToNewFile() {
 }
 
 main_function "$@"
+
+
+#----------------Solution 2---------------------------------
+# #!/bin/bash
+
+# if [[ ! $# -eq 3 ]]; then
+#     echo "Zla liczba argumentow"
+#     exit 1
+# fi
+
+# if [[ -f $3 && -f $2 && -f $1 ]]; then
+#     # Check if file is writable
+#     if [[ -w $3 ]]; then
+#         # Intensionally splitting by spaces
+#         mapfile -t lines1 < <(tac "$1")
+#         mapfile -t lines2 < <(tac "$2")
+#         # lines1=($(cat $1 | tac)) # skipcq: SH-2086
+#         # lines2=($(cat $2 | tac)) # skipcq: SH-2086
+#         for ((i = 0; i < ${#lines1[@]}; i++)); do
+#             if [[ "${lines1[i]}" != "${lines2[i]}" ]]; then
+#                 echo "${lines1[i]}" | rev >>"$3"
+#             fi
+#         done
+#     else
+#         echo "Plik $3 nie jest zapisywalny"
+#         exit 2
+#     fi
+# else
+#     echo "Files do not exist"
+#     exit 3
+# fi
